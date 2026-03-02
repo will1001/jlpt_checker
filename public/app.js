@@ -128,13 +128,40 @@ async function subscribeUser() {
 
 // Test Notification API
 async function testNotification() {
+  const btn = document.getElementById("test-notif-btn");
+  const originalText = btn.innerHTML;
+
   try {
+    btn.disabled = true;
+    btn.innerHTML = "⏳ Mengirim...";
+
+    // Show local notification as immediate feedback
+    if ("Notification" in window && Notification.permission === "granted") {
+      new Notification("JLPT Tracker - Tes Notifikasi", {
+        body: "Notifikasi berhasil aktif! 🎉",
+        icon: "/icons/icon-192.png",
+        badge: "/icons/icon-192.png",
+      });
+    }
+
+    // Also trigger push notification from server
     const res = await fetch("/test-notification", { method: "POST" });
     if (res.ok) {
-      console.log("Test notif triggered");
+      btn.innerHTML = "✅ Terkirim!";
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }, 2000);
+    } else {
+      throw new Error("Gagal mengirim");
     }
   } catch (err) {
-    console.error("Trigger fail", err);
+    console.error("Test notif error:", err);
+    btn.innerHTML = "❌ Gagal";
+    setTimeout(() => {
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+    }, 2000);
   }
 }
 

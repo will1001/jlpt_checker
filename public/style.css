@@ -214,9 +214,53 @@ h3 {
 
 footer {
   text-align: center;
-  color: var(--text-muted);
-  font-size: 0.8rem;
   margin-top: 1rem;
+}
+
+.install-tip {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.install-tip p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.install-tip strong {
+  color: var(--text-main);
+}
+
+.install-steps {
+  font-size: 0.75rem !important;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.copyright {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.test-area {
+  text-align: center;
+  animation: fadeInUp 0.8s ease backwards;
+  animation-delay: 0.6s;
+}
+
+.test-area .btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.test-hint {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
 }
 
 @keyframes fadeInDown {
