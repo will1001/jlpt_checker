@@ -3,7 +3,7 @@ services:
     name: jlpt-tracker
     runtime: node
     buildCommand: npm install
-    startCommand: npm start
+    startCommand: node server.js
     envVars:
       - key: PUBLIC_VAPID_KEY
         sync: false
