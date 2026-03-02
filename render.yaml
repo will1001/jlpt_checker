@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: jlpt-tracker
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PUBLIC_VAPID_KEY
+        sync: false
+      - key: PRIVATE_VAPID_KEY
+        sync: false
+      - key: PORT
+        value: 10000
